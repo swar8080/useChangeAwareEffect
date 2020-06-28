@@ -1,20 +1,33 @@
 {
   "name": "use-change-aware-effect",
   "version": "1.0.0",
-  "description": "useEffect, but know what changed between renders",
-  "main": "index.js",
+  "description": "useEffect, but know what caused the effect to run",
+  "scripts": {
+    "test": "npx jest",
+    "build": "tsc",
+    "prepare": "npm run test && npm run build"
+  },
   "peerDependencies": {
     "react": ">=16.8"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
+    "@types/jest": "^26.0.3",
     "@types/react": "^16.9.41",
+    "@types/react-dom": "^16.9.8",
     "jest": "^26.1.0",
     "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.5"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["/dist"],
+  "author": "Steven Swartz",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swar8080/useChangeAwareEffect"
   }
 }

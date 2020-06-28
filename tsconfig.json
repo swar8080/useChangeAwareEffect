@@ -1,6 +1,16 @@
 {
-    "compilerOptions": {},
+    "compilerOptions": {
+        "outDir": "./dist",
+        "declaration": true,
+        "declarationDir": "./dist",
+        "module": "commonjs",
+        "jsx": "react"
+    },
     "files": [
-        "src/index.ts"
+        "./src/index.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
     ]
 }
