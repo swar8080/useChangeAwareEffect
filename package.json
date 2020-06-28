@@ -1,0 +1,20 @@
+{
+  "name": "use-change-aware-effect",
+  "version": "1.0.0",
+  "description": "useEffect, but know what changed between renders",
+  "main": "index.js",
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^16.9.41",
+    "jest": "^26.1.0",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.5"
+  }
+}
