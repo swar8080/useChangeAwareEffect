@@ -10,7 +10,7 @@
 - [Typescript Support](#typescript-support)
 
 #  How the built-in useEffect hook works
-React's built-in [useEffect](https://reactjs.org/docs/hooks-effect.html) hook lets your code run side-effects on a component's first render and whenever any of it's dependencies (second argument to useEffect) change. Shallow equality ([Object.is](https://github.com/facebook/react/blob/30b47103d4354d9187dc0f1fb804855a5208ca9f/packages/shared/objectIs.js "React's Object.is implementation")) is used to check if a dependency changed.
+React's [useEffect](https://reactjs.org/docs/hooks-effect.html) lets your code run side-effects after a component's first render and whenever any of it's dependencies (second argument to useEffect) change between renders. Shallow equality ([Object.is](https://github.com/facebook/react/blob/30b47103d4354d9187dc0f1fb804855a5208ca9f/packages/shared/objectIs.js "React's Object.is implementation")) is used to check if a dependency changed.
 
 # Motivation for useChangeAwareEffect
 Sometimes, `useEffect` does not provide enough information to decide if a side-effect should be run, and also which side-effect should be run:
