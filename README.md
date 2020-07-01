@@ -1,3 +1,14 @@
+# useChangeAwareEffect
+- [How the built-in useEffect hook works](#how-the-built-in-useeffect-hook-works)
+- [Motivation for useChangeAwareEffect](#motivation-for-usechangeawareeffect)
+- [Usage](#usage)
+  * [Installation](#installation)
+  * [API](#api)
+      - [dependencyObject](#dependencyobject)
+      - [changeAwareCallback](#changeawarecallback)
+- [Examples](#examples)
+- [Typescript Support](#typescript-support)
+
 #  How the built-in useEffect hook works
 React's built-in [useEffect](https://reactjs.org/docs/hooks-effect.html) hook lets your code run side-effects on a component's first render and whenever any of it's dependencies (second argument to useEffect) change. Shallow equality ([Object.is](https://github.com/facebook/react/blob/30b47103d4354d9187dc0f1fb804855a5208ca9f/packages/shared/objectIs.js "React's Object.is implementation")) is used to check if a dependency changed.
 
@@ -38,6 +49,7 @@ Equivalent to the function used as the first parameter of `useEffect`, but is pa
 
 Just like `useEffect`, you can optionally return a function from `changeAwareEffectCallback` to perform any clean-up logic.
 # Examples
+
 ```
 import { useChangeAwareEffect } from "use-change-aware-effect";
 
