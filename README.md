@@ -5,7 +5,7 @@ React's built-in [useEffect](https://reactjs.org/docs/hooks-effect.html) hook le
 Sometimes, `useEffect` does not provide enough information to decide if a side-effect should be run, and also which side-effect should be run:
 - A side-effect might need to be skipped during the first render.
 - Shallow equality can lead to the side-effect running more than needed. Sometimes custom logic for detecting changes in dependencies is preferred.
-- Sometimes the side-effect to run is dependent on which dependencies changed and how those dependencies changed since the previous render.
+- Sometimes the side-effect to run is dependent on which dependencies changed, and also how those dependencies changed since the previous render.
 
 [useRef](https://reactjs.org/docs/hooks-reference.html#useref) can be used to get around these limitations by keeping track of dependency values from the previous render, but that can lead to a bunch of boilerplate code.
 
@@ -30,7 +30,7 @@ Equivalent to the function used as the first parameter of `useEffect`, but is pa
 
 - `did: object` An object summarizing which dependencies changed since the previous execution of `changeAwareCallback`. The object contains the same keys as `dependencyObject`, and each value has properties:
    - `change: boolean` true when the dependency with the given key changed since the last execution (ex: `did.foo.change`). Always true after the initial render.
-   - `notChange: boolean` true when the dependency with the given did not change since the last execution (ex: `did.bar.notChange`). Always false after the initial render.
+   - `notChange: boolean` true when the dependency with the given key did not change since the last execution (ex: `did.bar.notChange`). Always false after the initial render.
 
 - `previous: object` The `dependencyObject` passed to `useChangeAwareEffect` that triggered the previous exection of `changeAwareCallback`. During the initial render, the previous value for each dependency is `undefined`.
 
