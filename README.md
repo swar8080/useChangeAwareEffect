@@ -43,7 +43,7 @@ Equivalent to the function used as the first parameter of `useEffect`, but is pa
    - `change: boolean` true when the dependency with the given key changed since the last execution (ex: `did.foo.change`). Always true after the initial render.
    - `notChange: boolean` true when the dependency with the given key did not change since the last execution (ex: `did.bar.notChange`). Always false after the initial render.
 
-- `previous: object` The `dependencyObject` passed to `useChangeAwareEffect` that triggered the previous exection of `changeAwareCallback`. During the initial render, the previous value for each dependency is `undefined`. Note that only a shallow copy of the previous dependencies are made so any external mutations will affect these values.
+- `previous: object` The `dependencyObject` passed to `useChangeAwareEffect` that triggered the previous exection of `changeAwareCallback`. During the initial render, the previous value for each dependency is `undefined`. Note that only a shallow copy of the previous dependencies are made - any external mutations will affect these values.
 
 - `changeCount: number` the number of dependencies from `dependencyObject` that changed since the previous execution of `changeAwareCallback`
 
