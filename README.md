@@ -13,8 +13,8 @@
 React's [useEffect](https://reactjs.org/docs/hooks-effect.html) lets your code run side-effects after a component's first render and whenever any of its dependencies (second argument to useEffect) change between renders. Shallow equality ([Object.is](https://github.com/facebook/react/blob/30b47103d4354d9187dc0f1fb804855a5208ca9f/packages/shared/objectIs.js "React's Object.is implementation")) is used to check if a dependency changed.
 
 # Motivation for useChangeAwareEffect
-Sometimes, `useEffect` does not provide enough information to decide if a side-effect should be run, and also which side-effect should be run:
-- A side-effect might need to be skipped during the first render.
+Sometimes, `useEffect` doesn't provide enough info to decide if a side-effect should be run, and also which side-effect should be run:
+- A side-effect is always called after the first render, which you may want to skip.
 - Shallow equality can lead to the side-effect running more than needed. Sometimes custom logic for detecting changes in dependencies is preferred.
 - Sometimes the side-effect to run is dependent on which dependencies changed, and also how those dependencies changed since the previous render.
 
