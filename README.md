@@ -10,7 +10,7 @@
 - [Typescript Support](#typescript-support)
 
 #  How the built-in useEffect hook works
-React's [useEffect](https://reactjs.org/docs/hooks-effect.html) lets your code run side-effects after a component's first render and whenever any of it's dependencies (second argument to useEffect) change between renders. Shallow equality ([Object.is](https://github.com/facebook/react/blob/30b47103d4354d9187dc0f1fb804855a5208ca9f/packages/shared/objectIs.js "React's Object.is implementation")) is used to check if a dependency changed.
+React's [useEffect](https://reactjs.org/docs/hooks-effect.html) lets your code run side-effects after a component's first render and whenever any of its dependencies (second argument to useEffect) change between renders. Shallow equality ([Object.is](https://github.com/facebook/react/blob/30b47103d4354d9187dc0f1fb804855a5208ca9f/packages/shared/objectIs.js "React's Object.is implementation")) is used to check if a dependency changed.
 
 # Motivation for useChangeAwareEffect
 Sometimes, `useEffect` does not provide enough information to decide if a side-effect should be run, and also which side-effect should be run:
@@ -33,7 +33,7 @@ Sometimes, `useEffect` does not provide enough information to decide if a side-e
 #### dependencyObject
 Equivalent to the second parameter of `useEffect`, but it's an object and not an array of dependencies. This makes the `changeAwareCallback` easier to use since you can refer to dependencies by their object key.
 
-Internally, the values in the object are converted into an array and passed to react's useEffect. Just like useEffect, the `changeAwareCallback` is executed whenever one of the values change between renders, or always when this parameter is omitted or `undefined`. React's Object.is implementation is used to detect changes.
+Internally, the values in the object are converted into an array and passed to react's useEffect. Just like useEffect, the `changeAwareCallback` is executed whenever any of the values change between renders, or always when this parameter is omitted or `undefined`. React's Object.is implementation is used to detect changes.
 
 #### changeAwareCallback
 Equivalent to the function used as the first parameter of `useEffect`, but is passed an object containing additional information about what changed between executions of the callback:
@@ -43,7 +43,7 @@ Equivalent to the function used as the first parameter of `useEffect`, but is pa
    - `change: boolean` true when the dependency with the given key changed since the last execution (ex: `did.foo.change`). Always true after the initial render.
    - `notChange: boolean` true when the dependency with the given key did not change since the last execution (ex: `did.bar.notChange`). Always false after the initial render.
 
-- `previous: object` The `dependencyObject` passed to `useChangeAwareEffect` that triggered the previous exection of `changeAwareCallback`. During the initial render, the previous value for each dependency is `undefined`. Note that only a shallow copy of the previous dependencies are made - any external mutations will affect these values.
+- `previous: object` The `dependencyObject` passed to `useChangeAwareEffect` that triggered the previous execution of `changeAwareCallback`. During the initial render, the previous value for each dependency is `undefined`. Note that only a shallow copy of the previous dependencies are made - any external mutations will affect these values.
 
 - `changeCount: number` the number of dependencies from `dependencyObject` that changed since the previous execution of `changeAwareCallback`
 
@@ -90,7 +90,7 @@ import { useChangeAwareEffect } from "use-change-aware-effect";
  *
  * The hook is used to efficiently keep track of and reload values in a grid that has filters:
  * - When any filters change, all of the rows and cell data need to be filtered and reloaded from scratch, which is expensive
- * - When just new columns are added to the grid, only reloading cell data for the existing rows is neccesary, which is less expensive
+ * - When just new columns are added to the grid, only reloading cell data for the existing rows is neccessary, which is less expensive
  *
  */
 const useGridData = (gridFilterA: object, gridFilterB: object, gridColumns: Set<string>) => {
